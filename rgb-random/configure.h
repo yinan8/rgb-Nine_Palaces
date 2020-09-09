@@ -32,6 +32,11 @@ using namespace cv;
 #define Flase_Up_Date 2//识别错误
 #define Date_default ALL_DEFAULT//默认未识别
 
+//#define SHOW_DATE//显示各颜色方块数量以及最多的方块
+#define IMAGE_SIZE 350 //单张图片的边长
+#define COLOR_SIZE 5 //加入的颜色种类
+
+
 #define To_update 1//更新
 
 #endif // CONFIGURE_H

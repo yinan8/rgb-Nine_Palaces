@@ -4,10 +4,8 @@
 #include "configure.h"
 #include "serial_port.h"
 
-#define IMAGE_SIZE 200 //单张图片的边长
 #define BOXES 9 /*开方必须是整数*///图片数量
-#define COLOR_SIZE 3 //加入的颜色种类
-//#define SHOW_DATE//显示各颜色方块数量以及最多的方块
+
 class Color_Random
 {
 public:
@@ -24,7 +22,9 @@ private:
     int max_color;
     int zero_ =0;
     int one_  =0;
-    int twe_  =0;
+    int two_  =0;
+    int three_ =0;
+    int four_ =0;
 };
-
+void bubble_sort(int arr[], int len);
 #endif // RANDOM_H

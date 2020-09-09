@@ -12,13 +12,13 @@ void Link::Run()
     Mat red       = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(0, 0, 255));
     Mat green  = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(0, 255, 0));
     Mat blue     = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(255, 0, 0));
-    Mat violet   = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(255, 0, 255));
-    Mat yellow  = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(0, 255, 255));
+    Mat black   = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(0, 0, 0));
+    Mat white  = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(255, 255, 255));
     color_image.push_back(red);
     color_image.push_back(green);
     color_image.push_back(blue);
-    color_image.push_back(violet);
-    color_image.push_back(yellow);
+    color_image.push_back(black);
+    color_image.push_back(white);
     while(run)
     {
         color_random.RandomArray(color_image,color_img);
