@@ -11,6 +11,7 @@ public:
     Link();
     void Run();
     bool is_exit();
+    int first;
 private:
     Color_Random color_random;
     bool run;

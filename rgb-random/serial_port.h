@@ -5,7 +5,7 @@
 #define DEVICE_NAME "/dev/ttyUSB0"
 
 #define BUFF_LENGTH 16
-#define REC_BUFF_LENGTH 4
+#define REC_BUFF_LENGTH 3
 
 #define PARMODE_CRC_1
 

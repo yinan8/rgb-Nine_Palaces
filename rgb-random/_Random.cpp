@@ -35,6 +35,17 @@ void Color_Random::showManyImages(vector<Mat>& imgs)
             x++;
         }
     }
+    unsigned int up_date_TF = Serial_Port::databitProcessing();
+    Mat result,result1;
+    if(up_date_TF == Ture_Up_Date){
+        result = imread("/home/ubuntu/workspace/rgb-Nine_Palaces/rgb-random/true.jpeg");
+    }
+    else{
+        result = imread("/home/ubuntu/workspace/rgb-Nine_Palaces/rgb-random/false.jpeg");
+    }
+    resize(result,result1,show_Image.size(),0,0,INTER_CUBIC);
+    imshow("src",result1);
+    waitKey(3000);
     imshow("src",show_Image);
 }
 void Color_Random::RandomArray(vector<Mat> oldArray, vector<Mat> &newArray)

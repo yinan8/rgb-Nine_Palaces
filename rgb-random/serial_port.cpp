@@ -81,8 +81,10 @@ void Serial_Port::receiveData(){
     memset(g_rec_buf, '0', REC_BUFF_LENGTH); //清空缓存
     char rec_buf_temp[8];
     read(fd,rec_buf_temp,sizeof(rec_buf_temp));
+    cout<<"  rec_buf_temp: "<<rec_buf_temp<<endl;
+
     for(int i = 0;i< (int)sizeof(rec_buf_temp);++i){
-        if(rec_buf_temp[i]=='S' && rec_buf_temp[i+sizeof(g_rec_buf)-1] == 'E'){
+        if(rec_buf_temp[i]=='S' && rec_buf_temp[i+2/*sizeof(g_rec_buf)-1*/] == 'E'){
             for(int j = 0;j<((int)sizeof(g_rec_buf));++j){
                 g_rec_buf[j] = rec_buf_temp[i+j];
             }
@@ -94,7 +96,6 @@ void Serial_Port::receiveData(){
         }
     }
     tcflush(fd,TCIFLUSH);
-    cout<<"  rec_buf_temp: "<<rec_buf_temp<<endl;
     cout<<"  g_rec_buf: "<<g_rec_buf<<endl;
 }
 

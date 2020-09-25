@@ -15,6 +15,7 @@ public:
     void showManyImages(vector<Mat>& imgs);
     void RandomArray(vector<Mat> oldArray, vector<Mat> &newArray);
 
+
 private:
     int srcWidth,srcHeight;//显示框的宽高
     int boxes=BOXES;//图片数量

@@ -23,8 +23,8 @@ using namespace std;
 using namespace cv;
 
 
-//#define Serial_Port_show//串口方式
-#define Automation//1s自动更新一次
+#define Serial_Port_show//串口方式
+//#define Automation//1s自动更新一次
 //#define Key_update//按下空格更新一次
 
 #define ALL_DEFAULT 0 //未识别

@@ -1,4 +1,4 @@
-﻿#include "link.h"
+﻿     #include "link.h"
 
 Link::Link()
 {
@@ -6,7 +6,6 @@ Link::Link()
 }
 void Link::Run()
 {
-    run=true;
     vector<Mat> color_image;
     vector<Mat> color_img;
     Mat red       = Mat(Size(IMAGE_SIZE, IMAGE_SIZE), CV_8UC3, Scalar(0, 0, 255));
@@ -19,8 +18,22 @@ void Link::Run()
     color_image.push_back(blue);
     color_image.push_back(black);
     color_image.push_back(white);
+
+    while(first){
+        color_random.RandomArray(color_image,color_img);
+        color_random.showManyImages(color_img);
+        first= 0;
+    }
+
+    unsigned int receive_serial_data_No_ = Serial_Port::databitProcessing();
+    if(receive_serial_data_No_==Ture_Up_Date || receive_serial_data_No_ == Flase_Up_Date){
+        run=true;
+    }else{
+        run=false;
+    }
     while(run)
     {
+        cout<<"receive_serial_data_No_"<<receive_serial_data_No_<<endl;
         color_random.RandomArray(color_image,color_img);
         color_random.showManyImages(color_img);
         run=false;
@@ -30,18 +43,11 @@ bool Link::is_exit()
 {
     bool exit = false;
 #ifdef Serial_Port_show
-    int key;
+    int key = waitKey(1);
     Serial_Port::receiveData();
-    unsigned int receive_serial_data_No_ = Serial_Port::databitProcessing();
-    cout<<"receive_serial_data_No_"<<receive_serial_data_No_<<endl;
-    if(receive_serial_data_No_==To_update){
-         key = waitKey(1000);
-    }else{
-         key =waitKey(0);
-    }
 #endif
 #ifdef Automation
-    int key = waitKey(1000);
+    int key = waitKey(10000);
 #endif
 #ifdef Key_update
     int key = waitKey(0);
