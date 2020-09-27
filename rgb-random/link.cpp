@@ -43,7 +43,7 @@ bool Link::is_exit()
 {
     bool exit = false;
 #ifdef Serial_Port_show
-    int key = waitKey(1);
+    int key = waitKey(1500);
     Serial_Port::receiveData();
 #endif
 #ifdef Automation

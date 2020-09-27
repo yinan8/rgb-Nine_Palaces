@@ -2,9 +2,9 @@
 #define SERIAL_PORT_H
 #include "configure.h"
 
-#define DEVICE_NAME "/dev/ttyUSB0"
+//#define DEVICE_NAME "/dev/ttyACM0"
 
-#define BUFF_LENGTH 16
+#define BUFF_LENGTH 3
 #define REC_BUFF_LENGTH 3
 
 #define PARMODE_CRC_1

@@ -84,7 +84,7 @@ void Serial_Port::receiveData(){
     cout<<"  rec_buf_temp: "<<rec_buf_temp<<endl;
 
     for(int i = 0;i< (int)sizeof(rec_buf_temp);++i){
-        if(rec_buf_temp[i]=='S' && rec_buf_temp[i+2/*sizeof(g_rec_buf)-1*/] == 'E'){
+        if(rec_buf_temp[i]=='S' && rec_buf_temp[i+sizeof(g_rec_buf)-1] == 'E'){
             for(int j = 0;j<((int)sizeof(g_rec_buf));++j){
                 g_rec_buf[j] = rec_buf_temp[i+j];
             }
@@ -96,7 +96,8 @@ void Serial_Port::receiveData(){
         }
     }
     tcflush(fd,TCIFLUSH);
-    cout<<"  g_rec_buf: "<<g_rec_buf<<endl;
+    if(g_rec_buf[0]=='S')
+    {cout<<"  g_rec_buf: "<<g_rec_buf<<endl;}
 }
 
 int Serial_Port::databitProcessing(){
@@ -111,10 +112,11 @@ int Serial_Port::databitProcessing(){
             }
         }
 
+
     return return_value;
 }
 /**
- *@brief: RM串口发送格式化函数
+ *@brief: 串口发送格式化函数
  *
  * @param: x 颜色最多的方块
  * @param: SendDataFlag 发送的标志
@@ -122,6 +124,7 @@ int Serial_Port::databitProcessing(){
  */
 void Serial_Port::serialWrite(int x)
 {
+
     sprintf(g_buf, "%c%1d%c", 'S', x,'E');
     write(fd,g_buf,sizeof(g_buf));
     std::cout<<"g_buf: "<<g_buf<<std::endl;

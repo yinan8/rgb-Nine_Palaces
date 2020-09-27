@@ -40,12 +40,15 @@ void Color_Random::showManyImages(vector<Mat>& imgs)
     if(up_date_TF == Ture_Up_Date){
         result = imread("/home/ubuntu/workspace/rgb-Nine_Palaces/rgb-random/true.jpeg");
     }
-    else{
+    else if(up_date_TF == Flase_Up_Date){
         result = imread("/home/ubuntu/workspace/rgb-Nine_Palaces/rgb-random/false.jpeg");
+    }
+    else{
+        result = imread("/home/ubuntu/workspace/rgb-Nine_Palaces/rgb-random/test.jpeg");
     }
     resize(result,result1,show_Image.size(),0,0,INTER_CUBIC);
     imshow("src",result1);
-    waitKey(3000);
+    waitKey(1000);
     imshow("src",show_Image);
 }
 void Color_Random::RandomArray(vector<Mat> oldArray, vector<Mat> &newArray)
